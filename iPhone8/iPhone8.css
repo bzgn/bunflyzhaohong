@@ -101,11 +101,9 @@
 	color: #fff;
 	font-size: 36px;
 }
-#picture{
-	width: 80%;
-	height: 700px;
-	background-image: url("image/12.png");
-	overflow: hidden; 
+.slogan~img{
+	display: block;
+	margin:0 auto; 
 }
 .text{
 	text-align: center;
@@ -215,28 +213,27 @@
 	padding-top: 50px;
 	font-size: 0;
 	display: inline-block;
-	width:2500px;
+	width:3500px;
 	height: 277px;
 }
 #banner:hover #bannerleft{
 	display: block;
-	left: 0px;
-	transition: all .5s;
 }
 #bannerleft{
 	position: absolute;
-	top:50%;
-	left:-50px;
+	top:150px;
+	display: none;
+	left:0;//overflow:hidden 会覆盖轮播
+	
 }
 #banner:hover #bannerright{
 	display: block;
-	right: 0px;
-	transition: all .5s;
 }
 #bannerright{
 	position: absolute;
-	top:50%;
-	right:-50px;
+	top:150px;
+	left:453px;
+	display: none;
 }
 #bannerbody>p{
 	text-align: center;

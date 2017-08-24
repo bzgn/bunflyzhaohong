@@ -3,37 +3,37 @@
          boxImage=document.getElementById("bannerbottom"),//获取底层div
          mb=document.getElementById("mengban"),
          oldDate=new Date();//获取时间
-    leftBtn.onclick=function(){//
+    rightBtn.onclick=function(){//
         var newDate=new Date();//获取点击时间
-        if(newDate-oldDate>500){//如果连续点击时间超过一秒
+        if(newDate-oldDate>1000){//如果连续点击时间超过一秒
             //获取最终样式表
             var boxImageList = boxImage.currentStyle || document.defaultView.getComputedStyle(boxImage,null);
             var mgLeft=parseInt(boxImageList.marginLeft);//将外边距转化为整数
             console.log(mgLeft);
-            if(mgLeft==-2000){
+            if(mgLeft==-2500){
                 mgLeft=0;//当图片到最后一张时跳到第一张
             }else{
                 mgLeft-=500;
             }
             boxImage.style.marginLeft=mgLeft+"px"
-            
+            boxImage.style.transition="margin-left 1s";
             oldDate=newDate;
         }
     };
-    rightBtn.onclick=function(){
+    leftBtn.onclick=function(){
         var newDate=new Date();
         //获取最终样式表
-        if(newDate-oldDate>500) {
+        if(newDate-oldDate>1000) {
             var boxImageList = boxImage.currentStyle || document.defaultView.getComputedStyle(boxImage, null);
             var mgLeft = parseInt(boxImageList.marginLeft);
             if (mgLeft == 0) {
-                mgLeft = -2000;
+                mgLeft = -2500;
             }
             else {
                 mgLeft += 500;
             }
             boxImage.style.marginLeft = mgLeft + "px";
-            
+            boxImage.style.transition = "margin-left 1s";
             oldDate=newDate;
         }
     };
@@ -41,7 +41,7 @@
    function play(){
     timer=setInterval(function(){
         rightBtn.onclick();
-    },2000);
+    },1000);
    }
    function stop(){
     clearInterval(timer);
